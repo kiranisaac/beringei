@@ -10,6 +10,9 @@ PROXYGEN_COMMIT_HASH="8e76dac9c30ca82aebd56b8d7c61b6dbdd7e1316"
 echo "This script configures ubuntu with everything needed to run beringei."
 echo "It requires that you run it as root. sudo works great for that."
 
+cat /etc/*release
+exit 1
+
 sudo apt update
 
 sudo apt install --yes \
