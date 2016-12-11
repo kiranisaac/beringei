@@ -7,4 +7,5 @@ COPY . /tmp/beringei
 CMD ["bash"]
 
 WORKDIR /tmp/beringei
-RUN setup_ubuntu.sh
+
+RUN /tmp/beringei/setup_ubuntu.sh
