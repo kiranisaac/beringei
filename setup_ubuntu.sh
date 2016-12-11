@@ -12,9 +12,9 @@ echo "It requires that you run it as root. sudo works great for that."
 
 cat /etc/*release
 
-sudo apt update
+apt update
 
-sudo apt install --yes \
+apt install --yes \
     autoconf \
     autoconf-archive \
     automake \
@@ -54,8 +54,8 @@ ready_destdir() {
         fi
 }
 
-sudo mkdir -pv /usr/local/facebook-${FB_VERSION}
-sudo ln -s /usr/local/facebook-${FB_VERSION} /usr/local/facebook
+mkdir -pv /usr/local/facebook-${FB_VERSION}
+ln -s /usr/local/facebook-${FB_VERSION} /usr/local/facebook
 
 export LDFLAGS="-L/usr/local/facebook/lib -Wl,-rpath=/usr/local/facebook/lib"
 export CPPFLAGS="-I/usr/local/facebook/include"
@@ -80,18 +80,18 @@ tar xzvf zstd-${ZSTD_VERSION}.tar.gz
 
 pushd mstch-master
 cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr/local/facebook-${FB_VERSION} .
-sudo make install
+make install
 popd
 
 pushd zstd-${ZSTD_VERSION}
-sudo make install PREFIX=/usr/local/facebook-${FB_VERSION}
+make install PREFIX=/usr/local/facebook-${FB_VERSION}
 popd
 
 
 pushd folly-${FB_VERSION}/folly
 autoreconf -ivf
 ./configure --prefix=/usr/local/facebook-${FB_VERSION}
-sudo make install
+make install
 popd
 
 pushd wangle-${FB_VERSION}/wangle
@@ -99,17 +99,17 @@ cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr/local/facebook-${FB_VERSION} -DBUILD_SHAR
 make
 # Wangle tests are broken. Disabling ctest.
 # ctest
-sudo make install
+make install
 popd
 
 pushd fbthrift-${FB_VERSION}/thrift
 autoreconf -ivf
 ./configure --prefix=/usr/local/facebook-${FB_VERSION}
-sudo make install
+make install
 popd
 
 pushd proxygen-${FB_VERSION}/proxygen
 autoreconf -ivf
 ./configure --prefix=/usr/local/facebook-${FB_VERSION}
-sudo make install
+make install
 popd

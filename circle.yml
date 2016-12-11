@@ -5,14 +5,7 @@ machine:
 dependencies:
   override:
     - docker build --rm=false -t base_ubuntu_16.10 .
-    - docker run -t base_ubuntu_16.10 mkdir build
-    - docker run -t base_ubuntu_16.10 ls
-    - docker run -t base_ubuntu_16.10 bash setup_ubuntu.sh
-    - docker run -t base_ubuntu_16.10 cd build && cmake .. && make -j4 && ctest
 
 test:
-  pre:
-    - mkdir build && pushd build && cmake .. && make && popd
   override:
-    - cd build && make test
-
+    - docker run -t base_ubuntu_16.10 mkdir build && cd build && cmake .. && make -j4 && ctest
