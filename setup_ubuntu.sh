@@ -10,8 +10,6 @@ PROXYGEN_COMMIT_HASH="8e76dac9c30ca82aebd56b8d7c61b6dbdd7e1316"
 echo "This script configures ubuntu with everything needed to run beringei."
 echo "It requires that you run it as root. sudo works great for that."
 
-cat /etc/*release
-
 apt update
 
 apt install --yes \
@@ -20,6 +18,7 @@ apt install --yes \
     automake \
     binutils-dev \
     bison \
+    clang-format-3.9 \
     cmake \
     flex \
     g++ \
