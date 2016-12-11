@@ -27,7 +27,7 @@
 
 DEFINE_int32(shards, 100, "Number of maps to use");
 DEFINE_int32(buckets, 13, "Number of historical buckets to use");
-DEFINE_int32(
+FINE_int32(
     bucket_size,
     2 * facebook::gorilla::kGorillaSecondsPerHour,
     "Size of each bucket in seconds");
