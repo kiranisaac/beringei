@@ -10,9 +10,9 @@ PROXYGEN_COMMIT_HASH="8e76dac9c30ca82aebd56b8d7c61b6dbdd7e1316"
 echo "This script configures ubuntu with everything needed to run beringei."
 echo "It requires that you run it as root. sudo works great for that."
 
-apt update
+sudo apt update
 
-apt install --yes \
+sudo apt install --yes \
     autoconf \
     autoconf-archive \
     automake \
@@ -53,8 +53,8 @@ ready_destdir() {
         fi
 }
 
-mkdir -pv /usr/local/facebook-${FB_VERSION}
-ln -s /usr/local/facebook-${FB_VERSION} /usr/local/facebook
+sudo mkdir -pv /usr/local/facebook-${FB_VERSION}
+sudo ln -s /usr/local/facebook-${FB_VERSION} /usr/local/facebook
 
 export LDFLAGS="-L/usr/local/facebook/lib -Wl,-rpath=/usr/local/facebook/lib"
 export CPPFLAGS="-I/usr/local/facebook/include"
@@ -79,18 +79,18 @@ tar xzvf zstd-${ZSTD_VERSION}.tar.gz
 
 pushd mstch-master
 cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr/local/facebook-${FB_VERSION} .
-make install
+sudo make install
 popd
 
 pushd zstd-${ZSTD_VERSION}
-make install PREFIX=/usr/local/facebook-${FB_VERSION}
+sudo make install PREFIX=/usr/local/facebook-${FB_VERSION}
 popd
 
 
 pushd folly-${FB_VERSION}/folly
 autoreconf -ivf
 ./configure --prefix=/usr/local/facebook-${FB_VERSION}
-make install
+sudo make install
 popd
 
 pushd wangle-${FB_VERSION}/wangle
@@ -98,17 +98,17 @@ cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr/local/facebook-${FB_VERSION} -DBUILD_SHAR
 make
 # Wangle tests are broken. Disabling ctest.
 # ctest
-make install
+sudo make install
 popd
 
 pushd fbthrift-${FB_VERSION}/thrift
 autoreconf -ivf
 ./configure --prefix=/usr/local/facebook-${FB_VERSION}
-make install
+sudo make install
 popd
 
 pushd proxygen-${FB_VERSION}/proxygen
 autoreconf -ivf
 ./configure --prefix=/usr/local/facebook-${FB_VERSION}
-make install
+sudo make install
 popd
