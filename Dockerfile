@@ -7,4 +7,4 @@ COPY . /tmp/beringei
 CMD ["bash"]
 
 WORKDIR /tmp/beringei
-RUN bash setup_beringei.sh
+RUN setup_beringei.sh
