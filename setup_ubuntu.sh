@@ -11,7 +11,6 @@ echo "This script configures ubuntu with everything needed to run beringei."
 echo "It requires that you run it as root. sudo works great for that."
 
 cat /etc/*release
-exit 1
 
 sudo apt update
 
