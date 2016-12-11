@@ -8,4 +8,4 @@ dependencies:
 
 test:
   override:
-    - docker run -t base_ubuntu_16.10 cmake .. && make -j4 && ctest
+    - docker run -t base_ubuntu_16.10 /bin/bash -c "cmake .. ; make ; ctest"
