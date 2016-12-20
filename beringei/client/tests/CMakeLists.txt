@@ -8,19 +8,19 @@
 add_executable(
     beringei_client_test_bin
 
-    MockConfigurationAdapter.h
     BeringeiClientTest.cpp
+    MockConfigurationAdapter.h
     RequestBatchingQueueTest.cpp
 )
 target_link_libraries(
     beringei_client_test_bin
 
-    beringei_core
-    beringei_client
     ${FOLLY_LIBRARIES}
+    ${GFLAGS_LIBRARIES}
     ${GTEST_HARNESS_LIBS}
     ${LIBGLOG_LIBRARY}
-    ${GFLAGS_LIBRARIES}
+    beringei_client
+    beringei_core
 )
 
 add_test(beringei_client_tests beringei_client_test_bin)

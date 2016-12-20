@@ -16,12 +16,12 @@ add_executable(
 target_link_libraries(
     beringei_plugin_test_bin
 
-    beringei_thrift
-    beringei_plugin
     ${FOLLY_LIBRARIES}
+    ${GFLAGS_LIBRARIES}
     ${GTEST_HARNESS_LIBS}
     ${LIBGLOG_LIBRARY}
-    ${GFLAGS_LIBRARIES}
+    beringei_plugin
+    beringei_thrift
 )
 
 add_test(

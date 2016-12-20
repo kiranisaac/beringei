@@ -8,19 +8,19 @@
 add_library(
     beringei_plugin STATIC
 
+    BeringeiConfigurationAdapter.cpp
     BeringeiConfigurationAdapter.h
+    BeringeiConfigurationLoader.cpp
     BeringeiConfigurationLoader.h
     BeringeiInternalConfiguration.h
-    BeringeiConfigurationAdapter.cpp
-    BeringeiConfigurationLoader.cpp
 )
 target_link_libraries(
     beringei_plugin
 
-    beringei_core
-    beringei_client
-    beringei_thrift
     ${FOLLY_LIBRARIES}
+    beringei_client
+    beringei_core
+    beringei_thrift
 )
 
 add_subdirectory(tests)

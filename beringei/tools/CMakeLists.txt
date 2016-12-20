@@ -13,12 +13,12 @@ add_executable(
 target_link_libraries(
     beringei_configuration_generator
 
-    beringei_thrift
-    ${FOLLY_LIBRARIES}
     ${FBTHRIFT_LIBRARIES}
+    ${FOLLY_LIBRARIES}
     ${GFLAGS_LIBRARIES}
     ${LIBGLOG_LIBRARIES}
     Threads::Threads
+    beringei_thrift
 )
 
 add_executable(
@@ -29,13 +29,13 @@ add_executable(
 target_link_libraries(
     beringei_put
 
-    beringei_thrift
-    beringei_plugin
-    ${FOLLY_LIBRARIES}
     ${FBTHRIFT_LIBRARIES}
+    ${FOLLY_LIBRARIES}
     ${GFLAGS_LIBRARIES}
     ${LIBGLOG_LIBRARIES}
     Threads::Threads
+    beringei_plugin
+    beringei_thrift
 )
 
 add_executable(
@@ -46,13 +46,13 @@ add_executable(
 target_link_libraries(
     beringei_get
 
-    beringei_thrift
-    beringei_plugin
-    ${FOLLY_LIBRARIES}
     ${FBTHRIFT_LIBRARIES}
+    ${FOLLY_LIBRARIES}
     ${GFLAGS_LIBRARIES}
     ${LIBGLOG_LIBRARIES}
     Threads::Threads
+    beringei_plugin
+    beringei_thrift
 )
 
 add_subdirectory(grafana_read_service)

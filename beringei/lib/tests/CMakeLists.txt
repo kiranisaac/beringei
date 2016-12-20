@@ -8,16 +8,15 @@
 add_library(
     beringei_test_util STATIC
 
-    TestKeyList.h
-    TestKeyList.cpp
-    TestDataLoader.h
     TestDataLoader.cpp
+    TestDataLoader.h
+    TestKeyList.cpp
+    TestKeyList.h
 )
 
 add_executable(
     beringei_core_test_bin
 
-    MockMemoryUsageGuard.h
     BitUtilTest.cpp
     BucketLogWriterTest.cpp
     BucketStorageTest.cpp
@@ -27,6 +26,7 @@ add_executable(
     FileUtilsTest.cpp
     GorillaDumperUtilsTest.cpp
     KeyListWriterTest.cpp
+    MockMemoryUsageGuard.h
     PersistentKeyListTest.cpp
     TimeSeriesStreamTest.cpp
     TimeSeriesTest.cpp
@@ -41,23 +41,23 @@ add_executable(
 target_link_libraries(
     beringei_core_test_bin
 
-    beringei_core
-    beringei_test_util
     ${FOLLY_LIBRARIES}
+    ${GFLAGS_LIBRARIES}
     ${GTEST_HARNESS_LIBS}
     ${LIBGLOG_LIBRARY}
-    ${GFLAGS_LIBRARIES}
+    beringei_core
+    beringei_test_util
 )
 
 target_link_libraries(
     beringei_bucket_map_test_bin
 
-    beringei_core
-    beringei_test_util
     ${FOLLY_LIBRARIES}
+    ${GFLAGS_LIBRARIES}
     ${GTEST_HARNESS_LIBS}
     ${LIBGLOG_LIBRARY}
-    ${GFLAGS_LIBRARIES}
+    beringei_core
+    beringei_test_util
 )
 
 add_test(

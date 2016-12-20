@@ -9,15 +9,16 @@ add_executable(beringei_service_test_bin BeringeiServiceHandlerTest.cpp)
 
 target_link_libraries(
     beringei_service_test_bin
-    beringei_core
-    beringei_service
-    beringei_plugin
-    beringei_client
+    
     ${FOLLY_LIBRARIES}
-    ${GTEST_HARNESS_LIBS}
-    ${GMOCK_HARNESS_LIBS}
-    ${LIBGLOG_LIBRARY}
     ${GFLAGS_LIBRARIES}
+    ${GMOCK_HARNESS_LIBS}
+    ${GTEST_HARNESS_LIBS}
+    ${LIBGLOG_LIBRARY}
+    beringei_client
+    beringei_core
+    beringei_plugin
+    beringei_service
 )
 
 add_test(beringei_service_tests beringei_service_test_bin)

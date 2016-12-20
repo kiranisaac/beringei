@@ -8,16 +8,16 @@
 add_library(
     beringei_service STATIC
 
-    BeringeiServiceHandler.h
     BeringeiServiceHandler.cpp
+    BeringeiServiceHandler.h
 )
 target_link_libraries(
     beringei_service
 
-    beringei_core
-    beringei_client
-    beringei_thrift
     ${FOLLY_LIBRARIES}
+    beringei_client
+    beringei_core
+    beringei_thrift
 )
 
 add_executable(
@@ -28,12 +28,12 @@ add_executable(
 target_link_libraries(
     beringei_main
 
-    beringei_plugin
-    beringei_service
     ${FBTHRIFT_LIBRARIES}
     ${GFLAGS_LIBRARIES}
     ${LIBGLOG_LIBRARIES}
     Threads::Threads
+    beringei_plugin
+    beringei_service
 )
 
 add_subdirectory(tests)

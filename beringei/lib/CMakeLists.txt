@@ -17,8 +17,8 @@ add_library(
 target_link_libraries(
     encoding
 
-    beringei_thrift
     ${FOLLY_LIBRARIES}
+    beringei_thrift
 )
 
 add_library(
@@ -63,10 +63,10 @@ add_library(
 target_link_libraries(
     beringei_core
 
-    encoding
-    beringei_thrift
     ${FOLLY_LIBRARIES}
     Boost::filesystem
+    beringei_thrift
+    encoding
 )
 
 add_subdirectory(tests)
