@@ -5,7 +5,7 @@ FB_VERSION="2017.01.16.00"
 ZSTD_VERSION="1.1.1"
 
 # folly does not have 2017.01.16. Use older version for now.
-FOLLY_VERSION="b2dd1005bb5bb6435214d541f3902e022d237f03".
+FOLLY_VERSION="b2dd1005bb5bb6435214d541f3902e022d237f03"
 
 echo "This script configures ubuntu with everything needed to run beringei."
 echo "It requires that you run it as root. sudo works great for that."
