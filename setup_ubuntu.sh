@@ -5,7 +5,7 @@ FB_VERSION="2017.01.16.00"
 ZSTD_VERSION="1.1.1"
 
 # folly does not have 2017.01.16. Use older version for now.
-FOLLY_VERSION="2016.11.07.00"
+FOLLY_VERSION="b2dd1005bb5bb6435214d541f3902e022d237f03".
 
 echo "This script configures ubuntu with everything needed to run beringei."
 echo "It requires that you run it as root. sudo works great for that."
@@ -61,7 +61,7 @@ export CPPFLAGS="-I/usr/local/facebook/include"
 
 cd /tmp
 
-wget -O /tmp/folly-${FB_VERSION}.tar.gz https://github.com/facebook/folly/archive/v${FOLLY_VERSION}.tar.gz
+wget -O /tmp/folly-${FB_VERSION}.tar.gz https://github.com/facebook/folly/archive/${FOLLY_VERSION}.tar.gz
 wget -O /tmp/wangle-${FB_VERSION}.tar.gz https://github.com/facebook/wangle/archive/v${FB_VERSION}.tar.gz
 wget -O /tmp/fbthrift-${FB_VERSION}.tar.gz https://github.com/facebook/fbthrift/archive/v${FB_VERSION}.tar.gz
 wget -O /tmp/proxygen-${FB_VERSION}.tar.gz https://github.com/facebook/proxygen/archive/v${FB_VERSION}.tar.gz
