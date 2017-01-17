@@ -69,6 +69,8 @@ wget -O /tmp/mstch-master.tar.gz https://github.com/no1msd/mstch/archive/master.
 wget -O /tmp/zstd-${ZSTD_VERSION}.tar.gz https://github.com/facebook/zstd/archive/v${ZSTD_VERSION}.tar.gz
 
 tar xzvf folly-${FB_VERSION}.tar.gz
+# folly version is different
+mv /tmp/folly-${FOLLY_VERSION} /tmp/folly-${FB_VERSION}
 tar xzvf wangle-${FB_VERSION}.tar.gz
 tar xzvf fbthrift-${FB_VERSION}.tar.gz
 tar xzvf proxygen-${FB_VERSION}.tar.gz
