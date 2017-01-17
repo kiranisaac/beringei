@@ -72,8 +72,6 @@ tar xzvf folly-${FB_VERSION}.tar.gz
 tar xzvf wangle-${FB_VERSION}.tar.gz
 tar xzvf fbthrift-${FB_VERSION}.tar.gz
 tar xzvf proxygen-${FB_VERSION}.tar.gz
-# temporary workaround till proxygen starts to tag their builds
-mv /tmp/proxygen-${PROXYGEN_COMMIT_HASH} /tmp/proxygen-${FB_VERSION}
 tar xzvf mstch-master.tar.gz
 tar xzvf zstd-${ZSTD_VERSION}.tar.gz
 
