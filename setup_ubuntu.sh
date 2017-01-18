@@ -7,6 +7,9 @@ ZSTD_VERSION="1.1.1"
 # folly does not have 2017.01.16. Use older version for now.
 FOLLY_VERSION="b2dd1005bb5bb6435214d541f3902e022d237f03"
 
+# proxygen does not tag their build
+PROXYGEN_COMMIT_HASH="8e76dac9c30ca82aebd56b8d7c61b6dbdd7e1316"
+
 echo "This script configures ubuntu with everything needed to run beringei."
 echo "It requires that you run it as root. sudo works great for that."
 
@@ -64,7 +67,7 @@ cd /tmp
 wget -O /tmp/folly-${FB_VERSION}.tar.gz https://github.com/facebook/folly/archive/${FOLLY_VERSION}.tar.gz
 wget -O /tmp/wangle-${FB_VERSION}.tar.gz https://github.com/facebook/wangle/archive/v${FB_VERSION}.tar.gz
 wget -O /tmp/fbthrift-${FB_VERSION}.tar.gz https://github.com/facebook/fbthrift/archive/v${FB_VERSION}.tar.gz
-wget -O /tmp/proxygen-${FB_VERSION}.tar.gz https://github.com/facebook/proxygen/archive/v${FB_VERSION}.tar.gz
+wget -O /tmp/proxygen-${FB_VERSION}.tar.gz https://github.com/facebook/proxygen/archive/${PROXYGEN_COMMIT_HASH}.tar.gz
 wget -O /tmp/mstch-master.tar.gz https://github.com/no1msd/mstch/archive/master.tar.gz
 wget -O /tmp/zstd-${ZSTD_VERSION}.tar.gz https://github.com/facebook/zstd/archive/v${ZSTD_VERSION}.tar.gz
 
@@ -74,6 +77,8 @@ mv /tmp/folly-${FOLLY_VERSION} /tmp/folly-${FB_VERSION}
 tar xzvf wangle-${FB_VERSION}.tar.gz
 tar xzvf fbthrift-${FB_VERSION}.tar.gz
 tar xzvf proxygen-${FB_VERSION}.tar.gz
+# temporary workaround till proxygen starts to tag their builds
+mv /tmp/proxygen-${PROXYGEN_COMMIT_HASH} /tmp/proxygen-${FB_VERSION}
 tar xzvf mstch-master.tar.gz
 tar xzvf zstd-${ZSTD_VERSION}.tar.gz
 
